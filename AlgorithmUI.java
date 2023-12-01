@@ -214,6 +214,8 @@ public class AlgorithmUI extends JFrame implements ActionListener{
             BubbleSort bubbleSort = new BubbleSort(values, bottom);
             runtime.setText("Runtime Complexity: " + bubbleSort.getRunTime());
             rank.setText("Rank of Algorithm: #" + bubbleSort.getRank());
+            nItems.setText(String.valueOf(150));
+            warning.setText("");
             if(e.getSource() == start && !radioButton.isSelected()){
                 startTime = System.currentTimeMillis();
                 bubbleSort.doBubbleSort();
@@ -239,6 +241,8 @@ public class AlgorithmUI extends JFrame implements ActionListener{
             SelectionSort selectionSort = new SelectionSort(values, bottom);
             runtime.setText("Runtime Complexity: " + selectionSort.getRunTime());
             rank.setText("Rank of Algorithm: #" + selectionSort.getRank());
+            nItems.setText(String.valueOf(150));
+            warning.setText("");
             if(e.getSource() == start && !radioButton.isSelected()){
                 startTime = System.currentTimeMillis();
                 selectionSort.doSelectionSort();
@@ -263,6 +267,8 @@ public class AlgorithmUI extends JFrame implements ActionListener{
             InsertionSort insertionSort = new InsertionSort(values, bottom);
             runtime.setText("Runtime Complexity: " + insertionSort.getRunTime());
             rank.setText("Rank of Algorithm: #" + insertionSort.getRank());
+            nItems.setText(String.valueOf(150));
+            warning.setText("");
             if(e.getSource() == start && !radioButton.isSelected()){
                 startTime = System.currentTimeMillis();
                 insertionSort.doInsertionSort();
@@ -287,6 +293,8 @@ public class AlgorithmUI extends JFrame implements ActionListener{
             QuickSort quickSort = new QuickSort(values,bottom);
             runtime.setText("Runtime Complexity: " + quickSort.getRunTime());
             rank.setText("Rank of Algorithm: #" + quickSort.getRank());
+            nItems.setText(String.valueOf(150));
+            warning.setText("");
             if(e.getSource() == start && !radioButton.isSelected()){
                 startTime = System.currentTimeMillis();
                 quickSort.doQuickSort();
@@ -311,6 +319,8 @@ public class AlgorithmUI extends JFrame implements ActionListener{
             CocktailShakerSort cocktailShakerSort = new CocktailShakerSort(values, bottom);
             runtime.setText("Runtime Complexity: " + cocktailShakerSort.getRunTime());
             rank.setText("Rank of Algorithm: #" + cocktailShakerSort.getRank());
+            nItems.setText(String.valueOf(150));
+            warning.setText("");
             if(e.getSource() == start && !radioButton.isSelected()){
                 startTime = System.currentTimeMillis();
                 cocktailShakerSort.doCocktailShakerSort();
