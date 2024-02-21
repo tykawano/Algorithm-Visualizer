@@ -36,13 +36,19 @@ public class SleepSort {
 
                     // Modify the values array within a synchronized block
                     synchronized (values) {
-                        // Move the value to the beginning of the array
-                        values.remove(index);
-                        values.add(0, sleepDuration);
+                        // Find the correct position to insert the value
+                        int insertIndex = 0;
+                        while (insertIndex < values.size() && values.get(insertIndex) < sleepDuration) {
+                            insertIndex++;
+                        }
+
+                        // Insert the value at the correct position
+                        values.add(insertIndex, sleepDuration);
+                        values.remove(index + 1); // Remove the old occurrence
 
                         // Update the UI or any other logic
-                        graph.setValues(values);
-                        graph.setIndexHighlight(0);
+                        graph.setValues(new ArrayList<>(values)); // Copy the array to avoid concurrent modification issues
+                        graph.setIndexHighlight(insertIndex);
                         graph.paintImmediately(0, 0, 1500, 600);
                         System.out.print(sleepDuration + " ");
                     }
