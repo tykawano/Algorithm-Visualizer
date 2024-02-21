@@ -47,7 +47,7 @@ public class SleepSort {
                         values.remove(index + 1); // Remove the old occurrence
 
                         // Update the UI or any other logic
-                        graph.setValues(new ArrayList<>(values)); // Copy the array to avoid concurrent modification issues
+                        graph.setValues(values);
                         graph.setIndexHighlight(insertIndex);
                         graph.paintImmediately(0, 0, 1500, 600);
                         System.out.print(sleepDuration + " ");
@@ -68,6 +68,14 @@ public class SleepSort {
                 e.printStackTrace();
             }
         }
+        if (!isSorted(values)) doSleepSort();
+    }
+
+    public boolean isSorted(ArrayList<Integer> vals) {
+        for (int i = 0; i < vals.size() - 1; i++) {
+            if (vals.get(i) > vals.get(i + 1)) return false;
+        }
+        return true;
     }
     public void postAnimation() {
         graph.setStatusDone(true);
