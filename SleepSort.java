@@ -27,14 +27,25 @@ public class SleepSort {
     public void doSleepSort() {
         ArrayList<Thread> threads = new ArrayList<>();
 
-        for (int num : values) {
+        for (int i = 0; i < values.size(); i++) {
+            final int index = i;
             Thread thread = new Thread(() -> {
                 try {
-                    Thread.sleep(num);
-                    graph.setValues(values);
-                    graph.setIndexHighlight(values.indexOf(num));
-                    graph.paintImmediately(0, 0, 1500, 600);
-                    System.out.println(num);
+                    int sleepDuration = values.get(index);
+                    Thread.sleep(sleepDuration);
+
+                    // Modify the values array within a synchronized block
+                    synchronized (values) {
+                        // Move the value to the beginning of the array
+                        values.remove(index);
+                        values.add(0, sleepDuration);
+
+                        // Update the UI or any other logic
+                        graph.setValues(values);
+                        graph.setIndexHighlight(0);
+                        graph.paintImmediately(0, 0, 1500, 600);
+                        System.out.print(sleepDuration + " ");
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -51,7 +62,19 @@ public class SleepSort {
                 e.printStackTrace();
             }
         }
-
+    }
+    public void postAnimation() {
+        graph.setStatusDone(true);
+        graph.setValues(values);
+        for (int i = 0; i < values.size(); i++) {
+            graph.setIndexHighlight(i);
+            graph.paintImmediately(0,0,1500,600);
+        }
+        graph.setPostDone(true);
+        for (int i = values.size() - 1; i >= 0; i--) {
+            graph.setIndexHighlight(i);
+            graph.paintImmediately(0,0,1500,600);
+        }
         graph.setIndexHighlight(-1);
     }
 

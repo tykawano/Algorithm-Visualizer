@@ -381,6 +381,7 @@ public class AlgorithmUI extends JFrame implements ActionListener{
                 endTime = System.currentTimeMillis();
                 result = endTime - startTime;
                 currTime.setText("Time taken " + result + "ms");
+                sleepSort.postAnimation();
             }
         }
 
