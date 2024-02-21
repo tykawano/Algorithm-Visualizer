@@ -143,7 +143,7 @@ public class AlgorithmUI extends JFrame implements ActionListener{
 
         // Combo options box
         String[] options = {
-                "BubbleSort", "SelectionSort", "QuickSort", "InsertionSort", "CocktailShakerSort", "BogoSort"
+                "BubbleSort", "SelectionSort", "QuickSort", "InsertionSort", "CocktailShakerSort", "BogoSort", "SleepSort"
         };
         algorithmOpp = new JComboBox<>(options);
         algorithmOpp.setBounds(1235,5,155,30);
@@ -362,6 +362,25 @@ public class AlgorithmUI extends JFrame implements ActionListener{
                 result = endTime - startTime;
                 currTime.setText("Time taken " + result + "ms");
                 bogoSort.postAnimation();
+            }
+        }
+
+        // SleepSort called
+        else if (Objects.equals(algorithmOpp.getSelectedItem(), "SleepSort")) {
+            bottom.setPostDone(false);
+            bottom.setStatusDone(false);
+            SleepSort sleepSort = new SleepSort(values, bottom);
+            runtime.setText("Runtime Complexity: " + sleepSort.getRunTime());
+            rank.setText("Rank of Algorithm: #" + sleepSort.getRank());
+            nItems.setText(String.valueOf(values.size()));  // Adjust the value accordingly
+            warning.setText("");
+
+            if (e.getSource() == start) {
+                startTime = System.currentTimeMillis();
+                sleepSort.doSleepSort();
+                endTime = System.currentTimeMillis();
+                result = endTime - startTime;
+                currTime.setText("Time taken " + result + "ms");
             }
         }
 

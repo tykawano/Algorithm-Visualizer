@@ -31,6 +31,9 @@ public class SleepSort {
             Thread thread = new Thread(() -> {
                 try {
                     Thread.sleep(num);
+                    graph.setValues(values);
+                    graph.setIndexHighlight(values.indexOf(num));
+                    graph.paintImmediately(0, 0, 1500, 600);
                     System.out.println(num);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -48,5 +51,15 @@ public class SleepSort {
                 e.printStackTrace();
             }
         }
+
+        graph.setIndexHighlight(-1);
+    }
+
+    public String getRunTime() {
+        return runTime;
+    }
+
+    public int getRank() {
+        return rank;
     }
 }
