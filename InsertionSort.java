@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class InsertionSort {
     private String runTime = "O(n^2)";
-    private int rank = 5;
+    private int rank = 6;
     private ArrayList<Integer> values;
     private CreateGraph graph;
     public InsertionSort(ArrayList<Integer> values, CreateGraph graph){

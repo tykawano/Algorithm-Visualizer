@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class BogoSort {
     private String runTime = "O(???)";
-    private int rank = 6;
+    private int rank = 7;
     private ArrayList<Integer> values;
     private CreateGraph graph;
     public BogoSort(ArrayList<Integer> values, CreateGraph graph){

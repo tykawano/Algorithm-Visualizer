@@ -15,7 +15,7 @@ import java.util.zip.CRC32;
 
 public class SleepSort {
     private String runTime = "O(n log(n)) -> O(n^2)";
-    private int rank = -1;
+    private int rank = 3;
     private ArrayList<Integer> values;
     private CreateGraph graph;
     public SleepSort(ArrayList<Integer> values, CreateGraph graph) {
@@ -50,7 +50,6 @@ public class SleepSort {
                         graph.setValues(values);
                         graph.setIndexHighlight(insertIndex);
                         graph.paintImmediately(0, 0, 1500, 600);
-                        System.out.print(sleepDuration + " ");
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();

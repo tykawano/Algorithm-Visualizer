@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class BubbleSort {
     private String runTime = "O(n^2)";
-    private int rank = 3;
+    private int rank = 4;
     private ArrayList<Integer> values;
     private CreateGraph graph;
     public BubbleSort(ArrayList<Integer> values, CreateGraph graph){
