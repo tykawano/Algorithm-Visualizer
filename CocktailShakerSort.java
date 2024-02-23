@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class CocktailShakerSort {
     private String runTime = "O(n^2)";
-    private int rank = 4;
+    private int rank = 5;
     private ArrayList<Integer> values;
     private CreateGraph graph;
     public CocktailShakerSort(ArrayList<Integer> values, CreateGraph graph){
